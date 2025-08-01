@@ -8,7 +8,7 @@ This project uses **`pixi`** for environment management. The `pixi.lock` file gu
 
 1.  **Clone the Repository**
     ```bash
-    git clone [your-git-repo-url]
+    git clone https://github.com/Duongmai127/Noisy-ood.git
     cd noisy_ood
     ```
 
