@@ -1,0 +1,53 @@
+[workspace]
+name = "noisy_ood"
+version = "0.1.0"
+description = "Research project on noise transformations."
+authors = ["Duong Mai <mai247@usf.edu>"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "win-64", "osx-arm64"]
+
+[tasks]
+# Main training task, uses the default from config.yaml
+train = "python train.py"
+train-no-noise = "python train.py experiment=train_no_noise_val_no_noise"
+
+[feature.gpu_cuda12]
+platforms = ["linux-64"]
+
+[feature.gpu_cuda12.dependencies]
+pytorch-gpu = "*"
+torchvision = "*"
+natsort = "*"
+pillow = "*"
+numpy = "*"
+pandas = "*"
+tqdm = "*"
+pyarrow = "*"
+scikit-image = "*"
+pytorch-lightning = "*"
+
+[feature.gpu_cuda12.system-requirements]
+cuda = "12.0"
+
+[feature.cpu_only]
+platforms = ["linux-64", "win-64", "osx-arm64"]
+
+[feature.cpu_only.dependencies]
+pytorch-cpu = "*"
+torchvision = "*"
+natsort = "*"
+pillow = "*"
+numpy = "*"
+pandas = "*"
+tqdm = "*"
+pyarrow = "*"
+scikit-image = "*"
+pytorch-lightning = "*"
+
+[environments]
+gpu-cuda12 = { features = ["gpu_cuda12"] }
+cpu-only = { features = ["cpu_only"] }
+
+[dependencies]
+hydra-core = ">=1.3.2,<2"
+tensorboard = ">=2.17.1,<3"

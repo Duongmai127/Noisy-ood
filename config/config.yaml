@@ -1,0 +1,48 @@
+defaults:
+  - _self_
+  - experiment: train_one_noise_val_no_noise
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+# Global training settings
+training:
+  batch_size: 32
+  num_workers: 4
+  lr: 0.0001
+  patience: 5
+  max_epochs: 50
+  num_seeds: 10
+  seeds: [73, 7, 46, 24, 49, 94, 29, 34, 8, 25]
+  project_name: "noisy_ood"
+  log_dir: "training_logs"
+  device_num: 1
+  log_every_n_steps: 1
+
+data:
+  split_dir: "data/split_2"
+  train_csv: "${data.split_dir}/train.csv"
+  val_csv: "${data.split_dir}/val.csv"
+  seen_test_csv: "${data.split_dir}/seen_test.csv"
+  unseen_test_csv: "${data.split_dir}/unseen_test.csv"
+
+# Noise parameters
+noise_params:
+  density: 0.05
+  variance: 0.01
+  mean: 0.0
+
+callbacks:
+  early_stopping:
+    monitor: "BinaryAUROC/val_avg"
+    patience: 5
+    min_delta: 0.01
+    mode: "max"
+    stopping_threshold: 0.98
+  checkpoints:
+    dirpath: "${training.log_dir}/checkpoints"
+    monitor: "BinaryAUROC/val_avg"
+    mode: "max"
+    save_top_k: 1
+    verbose: True
+
+summary_save_dir: "${training.log_dir}/summary_stats"

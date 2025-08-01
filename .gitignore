@@ -1,0 +1,21 @@
+# project specific artifacts
+data/*
+!data/README.md
+
+training_logs/
+
+outputs/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# IDE and OS specific
+.vscode/
+.DS_Store
+
+# pixi
+.pixi/
