@@ -58,4 +58,3 @@ class ChestXrayDataModule(pl.LightningDataModule):
 
     def test_dataloader(self):
         return [DataLoader(test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers, pin_memory=True) for test_dataset in self.test_dataset_list]
-        return [DataLoader(test_dataset, batch_size=self.batch_size, shuffle=False, num_workers=self.num_workers, pin_memory=True) for test_dataset in self.test_dataset_list]
