@@ -26,7 +26,7 @@ This project uses **`pixi`** for environment management. The `pixi.lock` file gu
         ```
 
 3.  **Prepare the Data**
-    This project requires a specific data structure. Please follow the instructions in the `data/README.md` file to set up your datasets correctly before proceeding.
+    This project requires a specific data structure. Please follow the instructions in the [`data/README.md`](data/README.md) file to set up your datasets correctly before proceeding.
 
 ## Running Experiments
 
