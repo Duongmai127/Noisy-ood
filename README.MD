@@ -54,7 +54,7 @@ To run the baseline experiment, you can override the configuration from the comm
 
 ## Configuration & Customization
 
-All experiment parameters are defined in `config/config.yaml`. You can modify this file directly or override any parameter from the command line.
+All experiment parameters are defined in [`config/config.yaml`](config/config.yaml). You can modify this file directly or override any parameter from the command line.
 
 For example, to run an experiment with a different noise variance:
 ```bash
